@@ -9,7 +9,7 @@ import { getCookie } from 'cookies-next';
 
 const BuyNow = (props) => {
 
-    const referralCodes = ["LALITSIR", "AMITSIR", "RAHULSIR", "LUVKUSHSIR", "SHANTANUSIR", "HITESHSIR", "SANDEEPSIROHISIR", "SANDEEPGARGSIR", "Lalitsir", "Amitsir", "Rahulsir", "Luvkushsir", "Shantanusir", "Hiteshsir", "Sandeepsirohisir", "Sandeepgargsir", "lalitsir", "amitsir", "rahulsir", "luvkushsir", "shantanusir", "hiteshsir", "sandeepsirohisir", "sandeepgargsir"];
+    const referralCodes = [];
 
     const router = useRouter();
     const [fullName, setFullName] = useState();
@@ -53,7 +53,7 @@ const BuyNow = (props) => {
         props.setProgress(30);
         const edunoId = getCookie('edunoId');
         const data = { edunoId, fullName, email, phoneNo, whatsappNo, course: props.courseCode };
-        let res = await fetch('https://www.eduno.in/api/payment/payment', {
+        let res = await fetch('https://www.eduno-eta.vercel.app/api/payment/payment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ const BuyNow = (props) => {
         props.setProgress(80);
         let response = await res.json();
         if (response.success == true) {
-            router.push(`https://www.eduno.in/payment/confirmpayment`);
+            router.push(`https://www.eduno-eta.vercel.app/payment/confirmpayment`);
         } else {
             somethingWentWrongToast();
         }

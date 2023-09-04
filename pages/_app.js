@@ -19,11 +19,11 @@ export default function App({ Component, pageProps }) {
     setCourseCode(courseCode);
     const loginToken = localStorage.getItem('loginToken');
     if (loginToken) {
-      router.push(`https://www.eduno.in/payment/buynow`)
+      router.push(`https://www.eduno-eta.vercel.app/payment/buynow`)
     } else {
       const signInMessage = "You are not Logged In. Please Login your account."
       if (confirm(signInMessage) == true) {
-        router.push(`https://www.eduno.in/authentication/signin`);
+        router.push(`https://www.eduno-eta.vercel.app/authentication/signin`);
       }
     }
   }
@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }) {
       localStorage.removeItem('edunoId');
       setKey(Math.random());
       setUser({ value: null });
-      router.push(`https://www.eduno.in/`);
+      router.push(`https://www.eduno-eta.vercel.app/`);
     }
   }
 
